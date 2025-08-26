@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtificialArtz - AI Automation Agency</title>
+    <link rel="icon" type="image/png" href="./logo.png">
+    <link rel="apple-touch-icon" href="./logo.png">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#0b0b0c',
+                        'light-text': '#f6f8fc',
+                        'accent': '#7c5cff',
+                        'accent-light': '#9b8cff'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0b0b0c;
+            color: #f6f8fc;
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-light-text min-h-screen">
+    <div id="root"></div>
+    <script type="text/babel" src="js/components.js"></script>
+    <script type="text/babel" src="js/tools.js"></script>
+    <script type="text/babel" src="js/pages.js"></script>
+    <script type="text/babel" src="js/app.js"></script>
+</body>
+</html>

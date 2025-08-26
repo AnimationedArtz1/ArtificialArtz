@@ -1,0 +1,21 @@
+{
+  "name": "artificialartz-website",
+  "version": "1.0.0",
+  "description": "ArtificialArtz - AI Automation Agency Portfolio Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server .",
+    "build": "echo 'Build complete'",
+    "preview": "live-server ."
+  },
+  "keywords": ["ai", "automation", "agency", "portfolio"],
+  "author": "ArtificialArtz",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
