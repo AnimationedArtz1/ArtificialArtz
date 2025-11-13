@@ -1,6 +1,6 @@
 // Main App Component
 const App = () => {
-    const [currentPage, setCurrentPage] = useState('home');
+    const [currentPage, setCurrentPage] = useState(window.__INITIAL_ROUTE__ || 'home');
     const [currentTagline, setCurrentTagline] = useState(0);
     
     const taglines = [
@@ -101,7 +101,7 @@ const App = () => {
                 React.createElement('div', { className: 'max-w-4xl mx-auto text-center' },
                     React.createElement('h1', { 
                         className: 'text-4xl md:text-6xl font-bold mb-6 text-light-text' 
-                    }, 'ArtificialArtz – Your AI Automation Agency'),
+                    }, 'AI destekli içerik motoru — ArtificialArtz'),
                     
                     React.createElement('div', { 
                         className: 'h-16 mb-8 flex items-center justify-center' 
@@ -584,6 +584,7 @@ const App = () => {
             case 'home': return React.createElement(HomePage);
             case 'tools': return React.createElement(ToolsPage);
             case 'services': return React.createElement(ServicesPage);
+            case 'pricing': return React.createElement(PricingPage);
             case 'about': return React.createElement(AboutPage);
             case 'contact': return React.createElement(ContactPage);
             default: return React.createElement(HomePage);
