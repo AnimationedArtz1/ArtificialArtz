@@ -1,410 +1,95 @@
-// Enhanced Services Page Component
+// Services, Pricing, About, Contact Pages
+
+// New Services Page: Otonom İçerik Motoru
 const ServicesPage = () => {
-    const [openFaq, setOpenFaq] = useState(null);
-    const [selectedPlatform, setSelectedPlatform] = useState('fiverr');
-
-    const toggleFaq = (index) => {
-        setOpenFaq(openFaq === index ? null : index);
-    };
-
-    // Service packages data
-    const servicePackages = {
-        fiverr: [
-            {
-                id: 1,
-                title: 'Transform Your Business with AI: Consulting + Setup',
-                pitch: 'Get expert AI consultation and complete automation setup tailored to your business needs.',
-                tiers: [
-                    { name: 'Basic', price: '$150', features: ['1-hour consultation', 'Basic AI workflow setup', 'Documentation', '7-day support'] },
-                    { name: 'Standard', price: '$450', features: ['3-hour consultation', '3 AI workflows', 'Integration setup', 'Video tutorials', '14-day support'] },
-                    { name: 'Premium', price: '$900', features: ['5-hour consultation', '5 AI workflows', 'Full integration', 'Training session', '30-day support', 'Performance monitoring'] }
-                ],
-                gradient: 'from-purple-600 to-blue-600',
-                icon: '🤖'
-            },
-            {
-                id: 2,
-                title: 'Build Custom AI Apps & Workflows (n8n + Qoder)',
-                pitch: 'Custom AI applications and automated workflows built with cutting-edge tools.',
-                tiers: [
-                    { name: 'Basic', price: '$100', features: ['1 custom workflow', 'n8n setup', 'Basic integration', '5-day delivery'] },
-                    { name: 'Standard', price: '$300', features: ['3 custom workflows', 'Advanced integrations', 'Qoder AI setup', '7-day delivery', 'Code documentation'] },
-                    { name: 'Premium', price: '$600', features: ['5 custom workflows', 'Full AI app development', 'Advanced features', '10-day delivery', 'Complete training', 'Source code'] }
-                ],
-                gradient: 'from-green-600 to-teal-600',
-                icon: '⚡'
-            },
-            {
-                id: 3,
-                title: 'Optimize Hosting & VM for AI Tools',
-                pitch: 'Professional server optimization and hosting setup for AI applications.',
-                tiers: [
-                    { name: 'Basic', price: '$120', features: ['Server audit', 'Basic optimization', 'Security setup', '3-day delivery'] },
-                    { name: 'Standard', price: '$350', features: ['Full server setup', 'Performance tuning', 'AI tool installation', 'Monitoring setup', '5-day delivery'] },
-                    { name: 'Premium', price: '$700', features: ['Enterprise setup', 'High-availability config', 'Auto-scaling', 'Backup systems', 'Monitoring dashboard', '7-day delivery'] }
-                ],
-                gradient: 'from-orange-600 to-red-600',
-                icon: '🚀'
-            }
-        ],
-        bionluk: [
-            {
-                id: 1,
-                title: 'İşinizi AI ile Dönüştürüyorum: Danışmanlık + Kurulum',
-                pitch: 'İşinize özel AI danışmanlığı ve komple otomasyon kurulumu alın.',
-                tiers: [
-                    { name: 'Temel', price: '1.500 TL', features: ['1 saatlik danışmanlık', 'Temel AI iş akışı kurulumu', 'Dokümantasyon', '7 günlük destek'] },
-                    { name: 'Standart', price: '4.500 TL', features: ['3 saatlik danışmanlık', '3 AI iş akışı', 'Entegrasyon kurulumu', 'Video eğitimleri', '14 günlük destek'] },
-                    { name: 'Premium', price: '9.000 TL', features: ['5 saatlik danışmanlık', '5 AI iş akışı', 'Tam entegrasyon', 'Eğitim seansı', '30 günlük destek', 'Performans izleme'] }
-                ],
-                gradient: 'from-purple-600 to-blue-600',
-                icon: '🤖'
-            },
-            {
-                id: 2,
-                title: 'Özel AI Uygulamaları ve Akışlar Geliştiriyorum',
-                pitch: 'En son teknolojilerle özel AI uygulamaları ve otomatik iş akışları.',
-                tiers: [
-                    { name: 'Temel', price: '1.000 TL', features: ['1 özel iş akışı', 'n8n kurulumu', 'Temel entegrasyon', '5 günlük teslimat'] },
-                    { name: 'Standart', price: '3.000 TL', features: ['3 özel iş akışı', 'Gelişmiş entegrasyonlar', 'Qoder AI kurulumu', '7 günlük teslimat', 'Kod dokümantasyonu'] },
-                    { name: 'Premium', price: '6.000 TL', features: ['5 özel iş akışı', 'Tam AI uygulama geliştirme', 'İleri özellikler', '10 günlük teslimat', 'Komple eğitim', 'Kaynak kodu'] }
-                ],
-                gradient: 'from-green-600 to-teal-600',
-                icon: '⚡'
-            },
-            {
-                id: 3,
-                title: 'AI Çözümleri için Hosting & VM Optimizasyonu',
-                pitch: 'AI uygulamaları için profesyonel sunucu optimizasyonu ve hosting kurulumu.',
-                tiers: [
-                    { name: 'Temel', price: '1.200 TL', features: ['Sunucu denetimi', 'Temel optimizasyon', 'Güvenlik kurulumu', '3 günlük teslimat'] },
-                    { name: 'Standart', price: '3.500 TL', features: ['Tam sunucu kurulumu', 'Performans ayarlaması', 'AI araç kurulumu', 'İzleme kurulumu', '5 günlük teslimat'] },
-                    { name: 'Premium', price: '7.000 TL', features: ['Kurumsal kurulum', 'Yüksek erişilebilirlik config', 'Otomatik ölçekleme', 'Yedekleme sistemleri', 'İzleme paneli', '7 günlük teslimat'] }
-                ],
-                gradient: 'from-orange-600 to-red-600',
-                icon: '🚀'
-            }
-        ]
-    };
-
-    const faqs = [
-        {
-            question: "How quickly can you deliver automation solutions?",
-            answer: "Most projects are completed within 24-48 hours for standard packages. Custom solutions typically take 3-7 days depending on complexity. I prioritize fast delivery without compromising quality."
-        },
-        {
-            question: "Do you provide ongoing support after delivery?",
-            answer: "Yes! All packages include 30 days of free support and troubleshooting. I also offer monthly maintenance packages for complex systems that need regular updates."
-        },
-        {
-            question: "What if the automation doesn't work as expected?",
-            answer: "I guarantee all deliverables work as specified. If there are issues, I'll fix them for free within the support period. Client satisfaction is my top priority."
-        },
-        {
-            question: "Can you integrate with my existing tools?",
-            answer: "Absolutely! I specialize in connecting different platforms and tools. Whether it's Shopify, WordPress, HubSpot, or custom APIs, I can make them work together seamlessly."
-        },
-        {
-            question: "How do you ensure data security and privacy?",
-            answer: "I follow industry best practices for data security, use secure API connections, and never store sensitive client data. All automations are built with privacy and security in mind."
-        },
-        {
-            question: "What's the difference between Fiverr and Bionluk services?",
-            answer: "Bionluk is for Turkish customers and communication, while Fiverr serves international customers worldwide. Both offer the same quality services with platform-appropriate communication and support."
-        }
-    ];
-
-    return React.createElement('div', { className: 'min-h-screen py-8 px-4' },
-        React.createElement('div', { className: 'max-w-6xl mx-auto' },
-            // Header
-            React.createElement('div', { className: 'text-center mb-16' },
-                React.createElement('h1', { className: 'text-4xl font-bold mb-4 gradient-text' }, 'My Freelance Services'),
-                React.createElement('p', { className: 'text-xl text-gray-300 mb-6 max-w-3xl mx-auto' },
-                    'Professional AI automation solutions that save time, increase efficiency, and drive real business results.'
-                ),
-                React.createElement('div', { className: 'flex items-center justify-center space-x-8 text-sm text-gray-400' },
-                    React.createElement('div', { className: 'flex items-center' },
-                        React.createElement('span', { className: 'text-green-400 mr-2' }, '✓'),
-                        'Fast 24-48h delivery'
-                    ),
-                    React.createElement('div', { className: 'flex items-center' },
-                        React.createElement('span', { className: 'text-green-400 mr-2' }, '✓'),
-                        '98% satisfaction rate'
-                    ),
-                    React.createElement('div', { className: 'flex items-center' },
-                        React.createElement('span', { className: 'text-green-400 mr-2' }, '✓'),
-                        '30-day support included'
-                    )
-                )
-            ),
-
-            // Capabilities Showcase
-            React.createElement('section', { className: 'mb-16' },
-                React.createElement('h2', { className: 'text-3xl font-bold mb-8 text-center' }, 'What I Specialize In'),
-                React.createElement('div', { className: 'grid lg:grid-cols-2 gap-8' },
-                    [
-                        {
-                            title: "AI Content Automation",
-                            description: "Complete content creation and distribution systems that scale your output without sacrificing quality.",
-                            capabilities: ["Blog post automation", "Social media scheduling", "SEO content optimization", "Multi-platform distribution"],
-                            icon: "📝"
-                        },
-                        {
-                            title: "Workflow Integration",
-                            description: "Connect your existing tools and platforms into seamless, automated workflows that eliminate manual tasks.",
-                            capabilities: ["CRM automation", "E-commerce integration", "Email marketing flows", "Data synchronization"],
-                            icon: "🔗"
-                        },
-                        {
-                            title: "Lead Generation Systems",
-                            description: "Automated lead capture, scoring, and nurturing systems that turn visitors into customers.",
-                            capabilities: ["Lead scoring automation", "Follow-up sequences", "Conversion tracking", "Customer journey mapping"],
-                            icon: "🎯"
-                        },
-                        {
-                            title: "Business Process Optimization",
-                            description: "Streamline your operations with intelligent automation that adapts to your business needs.",
-                            capabilities: ["Task automation", "Report generation", "Data processing", "Performance monitoring"],
-                            icon: "⚙️"
-                        }
-                    ].map((capability, index) =>
-                        React.createElement('div', {
-                            key: index,
-                            className: 'bg-gray-900 p-8 rounded-xl border border-gray-700 card-hover'
-                        },
-                            React.createElement('div', { className: 'flex items-center mb-4' },
-                                React.createElement('div', { className: 'text-4xl mr-4' }, capability.icon),
-                                React.createElement('h3', { className: 'text-2xl font-bold text-accent' }, capability.title)
-                            ),
-                            React.createElement('p', { className: 'text-gray-300 mb-6' }, capability.description),
-                            React.createElement('div', { className: 'grid grid-cols-2 gap-3' },
-                                capability.capabilities.map((cap, i) =>
-                                    React.createElement('div', {
-                                        key: i,
-                                        className: 'flex items-center text-sm text-gray-400'
-                                    },
-                                        React.createElement('span', { className: 'text-green-400 mr-2' }, '✓'),
-                                        cap
-                                    )
-                                )
-                            )
-                        )
-                    )
-                )
-            ),
-            
-            // Enhanced Service Packages with Platform Toggle
-            React.createElement('section', { className: 'mb-16' },
-                React.createElement('div', { className: 'text-center mb-12' },
-                    React.createElement('h2', { className: 'text-4xl font-bold mb-4 gradient-text' }, 'Service Packages'),
-                    React.createElement('p', { className: 'text-xl text-gray-400 mb-8 max-w-2xl mx-auto' }, 
-                        'Choose your platform and discover tailored automation solutions designed for real business results.'
-                    ),
-                    
-                    // Platform Toggle Buttons
-                    React.createElement('div', { className: 'flex justify-center mb-8' },
-                        React.createElement('div', { className: 'bg-gray-800 p-2 rounded-xl shadow-lg border border-gray-700' },
-                            React.createElement('button', {
-                                onClick: () => setSelectedPlatform('fiverr'),
-                                className: `px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
-                                    selectedPlatform === 'fiverr' 
-                                        ? 'bg-gradient-to-r from-accent-light to-accent text-white shadow-lg scale-105' 
-                                        : 'text-gray-300 hover:text-white hover:bg-gray-700'
-                                }`
-                            }, '🌍 Fiverr (International)'),
-                            React.createElement('button', {
-                                onClick: () => setSelectedPlatform('bionluk'),
-                                className: `px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ml-2 ${
-                                    selectedPlatform === 'bionluk' 
-                                        ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg scale-105' 
-                                        : 'text-gray-300 hover:text-white hover:bg-gray-700'
-                                }`
-                            }, '🇹🇷 Bionluk (Türkiye)')
-                        )
-                    ),
-                    
-                    // Platform Info Badge
-                    React.createElement('div', { className: 'inline-block' },
-                        React.createElement('div', { 
-                            className: `px-4 py-2 rounded-full text-sm border-2 ${
-                                selectedPlatform === 'fiverr' 
-                                    ? 'bg-accent/10 border-accent/30 text-accent' 
-                                    : 'bg-blue-500/10 border-blue-500/30 text-blue-400'
-                            }`
-                        }, selectedPlatform === 'fiverr' ? '🌐 Serving clients worldwide with English communication' : '🇹🇷 Türk müşterilere özel hizmet ve Türkçe iletişim')
-                    ),
-                    
-                    // Portfolio Link
-                    React.createElement('div', { className: 'mt-6' },
-                        React.createElement('a', {
-                            href: 'https://artificialartz.xyz',
-                            target: '_blank',
-                            className: 'inline-flex items-center text-gray-400 hover:text-accent transition-colors text-sm'
-                        },
-                            React.createElement('span', { className: 'mr-2' }, '💼'),
-                            'View Complete Portfolio & Case Studies',
-                            React.createElement('span', { className: 'ml-1 text-xs' }, '↗')
-                        )
-                    )
-                ),
-                
-                // Service Cards Grid
-                React.createElement('div', { className: 'grid lg:grid-cols-2 xl:grid-cols-3 gap-8' },
-                    servicePackages[selectedPlatform].map((service) =>
-                        React.createElement('div', {
-                            key: service.id,
-                            className: 'bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl border border-gray-700 hover:border-accent/50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-accent/10 overflow-hidden group'
-                        },
-                            // Service Header
-                            React.createElement('div', { className: `p-6 bg-gradient-to-r ${service.gradient} relative overflow-hidden` },
-                                React.createElement('div', { className: 'absolute inset-0 bg-black/20' }),
-                                React.createElement('div', { className: 'relative z-10' },
-                                    React.createElement('div', { className: 'flex items-center justify-between mb-4' },
-                                        React.createElement('div', { className: 'text-4xl' }, service.icon),
-                                        React.createElement('div', { className: 'text-xs bg-white/20 px-3 py-1 rounded-full' }, `Gig #${service.id}`)
-                                    ),
-                                    React.createElement('h3', { className: 'text-xl font-bold text-white mb-3 leading-tight' }, service.title),
-                                    React.createElement('p', { className: 'text-white/90 text-sm' }, service.pitch)
-                                )
-                            ),
-                            
-                            // Pricing Tiers
-                            React.createElement('div', { className: 'p-6' },
-                                React.createElement('div', { className: 'space-y-4 mb-6' },
-                                    service.tiers.map((tier, index) =>
-                                        React.createElement('div', {
-                                            key: index,
-                                            className: `p-4 rounded-lg border-2 transition-all duration-300 hover:scale-102 ${
-                                                index === 1 
-                                                    ? 'border-accent bg-accent/5 ring-1 ring-accent/20' 
-                                                    : 'border-gray-600 bg-gray-800/50 hover:border-gray-500'
-                                            }`
-                                        },
-                                            React.createElement('div', { className: 'flex justify-between items-center mb-3' },
-                                                React.createElement('div', {},
-                                                    React.createElement('h4', { className: 'font-bold text-white flex items-center' },
-                                                        tier.name,
-                                                        index === 1 && React.createElement('span', { className: 'ml-2 text-xs bg-accent text-white px-2 py-1 rounded-full' }, 'Popular')
-                                                    ),
-                                                    React.createElement('div', { className: 'text-2xl font-bold text-accent' }, tier.price)
-                                                )
-                                            ),
-                                            React.createElement('ul', { className: 'space-y-2' },
-                                                tier.features.slice(0, 3).map((feature, i) =>
-                                                    React.createElement('li', {
-                                                        key: i,
-                                                        className: 'text-gray-300 text-sm flex items-center'
-                                                    },
-                                                        React.createElement('span', { className: 'text-green-400 mr-2 text-xs' }, '✓'),
-                                                        feature
-                                                    )
-                                                ),
-                                                tier.features.length > 3 && React.createElement('li', {
-                                                    className: 'text-gray-400 text-xs italic'
-                                                }, `+${tier.features.length - 3} more features`)
-                                            )
-                                        )
-                                    )
-                                ),
-                                
-                                // CTA Button
-                                React.createElement('a', {
-                                    href: selectedPlatform === 'fiverr' ? 'https://www.fiverr.com/s/e6AREEj' : 'https://www.bionluk.com/artificialartz',
-                                    target: '_blank',
-                                    className: `block w-full text-center py-4 px-6 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg group-hover:shadow-xl ${
-                                        selectedPlatform === 'fiverr'
-                                            ? 'bg-gradient-to-r from-accent-light to-accent hover:from-accent hover:to-accent-light text-white'
-                                            : 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white'
-                                    }`
-                                },
-                                    React.createElement('span', { className: 'flex items-center justify-center' },
-                                        React.createElement('span', { className: 'mr-2' }, selectedPlatform === 'fiverr' ? '🚀' : '💼'),
-                                        `Order on ${selectedPlatform === 'fiverr' ? 'Fiverr' : 'Bionluk'}`,
-                                        React.createElement('span', { className: 'ml-2' }, '→')
-                                    )
-                                )
-                            )
-                        )
-                    )
-                )
-            ),
-
-            // Benefits Section Enhanced
-            React.createElement('section', { className: 'mb-16' },
-                React.createElement('div', { className: 'bg-gradient-to-r from-gray-800 to-gray-700 p-8 rounded-xl' },
-                    React.createElement('h2', { className: 'text-3xl font-bold mb-8 text-center' }, 'Why Choose ArtificialArtz?'),
-                    React.createElement('div', { className: 'grid md:grid-cols-3 gap-8' },
-                        [
-                            { icon: '🚀', title: 'Lightning Fast', desc: 'Most projects delivered within 24-48 hours. No waiting weeks for results.' },
-                            { icon: '🔧', title: 'Custom Built', desc: 'Every solution is tailored specifically for your business needs and workflows.' },
-                            { icon: '📊', title: 'Proven Results', desc: '150+ successful projects with measurable ROI improvements for clients.' },
-                            { icon: '🔑', title: 'Turnkey Solutions', desc: 'Complete setup, documentation, and training. You get a working system, not just code.' },
-                            { icon: '🛡️', title: 'Ongoing Support', desc: '30-day free support included. I\'m here to ensure your success long-term.' },
-                            { icon: '🌍', title: 'Global Experience', desc: 'Serving clients worldwide with 98% satisfaction rate across all platforms.' }
-                        ].map((benefit, index) =>
-                            React.createElement('div', {
-                                key: index,
-                                className: 'text-center p-6 bg-gray-900 rounded-lg card-hover'
-                            },
-                                React.createElement('div', { className: 'text-4xl mb-4' }, benefit.icon),
-                                React.createElement('h3', { className: 'font-bold mb-3 text-accent' }, benefit.title),
-                                React.createElement('p', { className: 'text-gray-300 text-sm' }, benefit.desc)
-                            )
-                        )
-                    )
-                )
-            ),
-
-            // FAQ Section
-            React.createElement('section', { className: 'mb-16' },
-                React.createElement('h2', { className: 'text-3xl font-bold text-center mb-12' }, 'Frequently Asked Questions'),
-                React.createElement('div', { className: 'max-w-4xl mx-auto space-y-4' },
-                    faqs.map((faq, index) =>
-                        React.createElement('div', {
-                            key: index,
-                            className: 'bg-gray-900 rounded-lg border border-gray-700 overflow-hidden'
-                        },
-                            React.createElement('button', {
-                                onClick: () => toggleFaq(index),
-                                className: 'w-full p-6 text-left flex justify-between items-center hover:bg-gray-800 transition-colors'
-                            },
-                                React.createElement('h3', { className: 'font-semibold text-lg pr-4' }, faq.question),
-                                React.createElement('span', {
-                                    className: `text-accent transition-transform duration-300 ${openFaq === index ? 'rotate-180' : ''}`
-                                }, '▼')
-                            ),
-                            openFaq === index && React.createElement('div', {
-                                className: 'px-6 pb-6 text-gray-300 animate-in'
-                            }, faq.answer)
-                        )
-                    )
-                )
-            ),
-            
-            // Enhanced CTA Section
-            React.createElement('section', { className: 'text-center bg-gradient-to-br from-accent-light via-accent to-purple-600 p-12 rounded-xl neon-glow' },
-                React.createElement('h2', { className: 'text-3xl font-bold mb-4' }, 'Ready to Transform Your Business?'),
-                React.createElement('p', { className: 'text-xl mb-6' }, 'Ready to transform your business with AI automation?'),
-                React.createElement('div', { className: 'flex flex-col sm:flex-row gap-4 justify-center mb-6' },
+    return React.createElement('div', { className: 'min-h-screen page-transition' },
+        // Hero
+        React.createElement('section', { className: 'py-16 px-4 bg-gradient-to-br from-purple-900/20 to-blue-900/20' },
+            React.createElement('div', { className: 'max-w-5xl mx-auto text-center' },
+                React.createElement('h1', { className: 'text-4xl md:text-5xl font-extrabold mb-4 gradient-text' }, 'Otonom İçerik Motoru'),
+                React.createElement('p', { className: 'text-xl text-gray-300 mb-8 max-w-3xl mx-auto' }, 'AI destekli içerik motoru: Blog, sosyal medya ve e-posta için tutarlı, çok kanallı içerik üretimi ve dağıtımı. Ölçeklenebilir, ölçümlenebilir, sürekli.'),
+                React.createElement('div', { className: 'flex flex-col sm:flex-row gap-4 justify-center' },
                     React.createElement('a', {
-                        href: 'https://www.fiverr.com/s/e6AREEj',
+                        href: window.getCalendlyUrl(),
                         target: '_blank',
-                        className: 'bg-white text-accent px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg btn-primary'
-                    }, '🚀 Quick Start on Fiverr'),
-                    
+                        rel: 'noopener noreferrer',
+                        className: 'bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:scale-105 transition-transform duration-200 shadow'
+                    }, 'Book Demo'),
+                    React.createElement('button', {
+                        onClick: () => { if (window.appNavigate) window.appNavigate('pricing'); else window.location.hash = '#/pricing'; },
+                        className: 'border-2 border-accent text-accent px-8 py-3 rounded-lg font-semibold hover:bg-accent hover:text-white transition-colors duration-200'
+                    }, 'See Pricing')
+                )
+            )
+        ),
+        
+        // What it does
+        React.createElement(Section, { title: 'Ne Yapar?', subtitle: 'Markanız için 7/24 çalışan, kanallar arası tutarlılık sağlayan içerik üretim ve dağıtım sistemi.' },
+            React.createElement('div', { className: 'grid md:grid-cols-2 gap-6' },
+                [
+                    'Blog, LinkedIn, X ve e-posta için tek kaynaktan çok formatlı içerik',
+                    'Marka tonu ve stiline göre tutarlı üretim',
+                    'Takvimli planlama ve otomatik yayınlama',
+                    'SEO brifleri ve anahtar kelime kapsaması',
+                    'Görsel ve kısa video varyasyonları',
+                    'Raporlama ve performans geri beslemesi'
+                ].map((f, i) => React.createElement('div', { key: i, className: 'p-5 bg-gray-900 rounded-xl border border-gray-700 flex items-start' },
+                    React.createElement('span', { className: 'text-green-400 mr-3 mt-0.5' }, '✓'),
+                    React.createElement('span', { className: 'text-gray-300' }, f)
+                ))
+            )
+        ),
+        
+        // How it works
+        React.createElement(Section, { title: 'Nasıl Çalışır?', subtitle: 'Basit, şeffaf ve ölçeklenebilir bir akış.' },
+            React.createElement('ol', { className: 'grid md:grid-cols-2 gap-6 list-decimal list-inside' },
+                [
+                    'Keşif ve içerik stratejisi: Hedef kitle, ana temalar, yayın takvimi',
+                    'Kurulum: n8n akışları + cto.new üzerinde üretim şablonları',
+                    'Üretim: Haftalık/aylık içerik paketlerinin otomatik oluşturulması',
+                    'Dağıtım: Kanal bazlı formatlama + zamanlama + UTM ile ölçüm'
+                ].map((step, i) => React.createElement('li', { key: i, className: 'p-5 bg-gray-900 rounded-xl border border-gray-700 text-gray-300' }, step))
+            )
+        ),
+        
+        // Stack
+        React.createElement(Section, { title: 'Kullanılan Teknolojiler', subtitle: 'Modern otomasyon yığını ile güvenilir altyapı.' },
+            React.createElement('div', { className: 'grid md:grid-cols-2 gap-6' },
+                [
+                    { icon: '⚙️', title: 'n8n', desc: 'No/low-code orkestrasyon, zamanlama, hata yönetimi, entegrasyonlar' },
+                    { icon: '🧠', title: 'cto.new', desc: 'Tekrarlanabilir şablonlar, üretim mantığı, geliştirici verimliliği' }
+                ].map((item, i) => React.createElement('div', { key: i, className: 'p-6 bg-gray-900 rounded-xl border border-gray-700 flex items-start' },
+                    React.createElement('div', { className: 'text-2xl mr-3' }, item.icon),
+                    React.createElement('div', {},
+                        React.createElement('h4', { className: 'font-semibold text-accent' }, item.title),
+                        React.createElement('p', { className: 'text-gray-300 text-sm' }, item.desc)
+                    )
+                ))
+            )
+        ),
+
+        // CTA
+        React.createElement(Section, { title: 'Hemen Başlayalım', subtitle: '3–5 gün içinde çalışan bir içerik motoruna sahip olun.' },
+            React.createElement('div', { className: 'text-center' },
+                React.createElement('div', { className: 'flex flex-col sm:flex-row gap-4 justify-center' },
                     React.createElement('a', {
-                        href: 'https://www.bionluk.com/artificialartz',
+                        href: window.getCalendlyUrl(),
                         target: '_blank',
-                        className: 'border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-accent transition-all duration-300 transform hover:scale-105 btn-primary'
-                    }, '💼 Custom Solutions on Bionluk')
+                        rel: 'noopener noreferrer',
+                        className: 'bg-gradient-to-r from-accent-light to-accent text-white px-8 py-3 rounded-lg font-semibold hover:scale-105 transition-transform duration-200 shadow'
+                    }, 'Book Demo'),
+                    React.createElement('button', {
+                        onClick: () => { if (window.appNavigate) window.appNavigate('pricing'); else window.location.hash = '#/pricing'; },
+                        className: 'border-2 border-accent text-accent px-8 py-3 rounded-lg font-semibold hover:bg-accent hover:text-white transition-colors duration-200'
+                    }, 'Paketleri Gör')
                 ),
-                React.createElement('p', { className: 'text-sm opacity-90' }, 'Free consultation included • Same-day response • Expert support')
+                React.createElement('p', { className: 'text-gray-400 text-sm mt-4' }, 'Aylık abonelik odaklıdır. İsteğe bağlı tek seferlik kurulum da yapılır.')
             )
         )
     );
 };
 
-// Enhanced About Page Component
+// Enhanced About Page Component (from previous version)
 const AboutPage = () => {
     return React.createElement('div', { className: 'min-h-screen py-8 px-4' },
         React.createElement('div', { className: 'max-w-5xl mx-auto' },
@@ -541,7 +226,7 @@ const AboutPage = () => {
     );
 };
 
-// Contact Page Component - Simplified Platform Selection
+// Contact Page Component - Simplified Platform Selection (from previous version)
 const ContactPage = () => {
     const [selectedPlatform, setSelectedPlatform] = useState('fiverr');
 
@@ -727,6 +412,87 @@ const ContactPage = () => {
             React.createElement('div', { className: 'mt-12 text-center bg-gray-800 p-6 rounded-xl border border-gray-600' },
                 React.createElement('h3', { className: 'text-lg font-bold mb-3 text-accent' }, 'Response Time'),
                 React.createElement('p', { className: 'text-gray-300' }, 'I typically respond within 2-4 hours during business hours (CET timezone)')
+            )
+        )
+    );
+};
+
+// Pricing Page Component
+const PricingPage = () => {
+    const packages = [
+        {
+            name: 'Başlangıç',
+            description: 'Kurulum + MVP içerik motoru',
+            eur: 290,
+            try: '9.900',
+            features: [
+                'Tek seferlik strateji oturumu',
+                '1 kanal otomasyon (Blog veya LinkedIn)',
+                '4 içerik/ay',
+                'Temel SEO brif',
+                'Basit raporlama paneli'
+            ],
+            note: 'Tek seferlik kurulum seçeneği: €490 / ₺17.000'
+        },
+        {
+            name: 'Haftalık İçerik',
+            description: 'Haftalık üretim ve dağıtım',
+            eur: 690,
+            try: '23.000',
+            popular: true,
+            features: [
+                '3 kanal otomasyon (Blog + LinkedIn + X)',
+                '8–12 içerik/ay',
+                'Görsel/GIF varyasyonları',
+                'Takvimli yayınlama',
+                'A/B başlık testleri',
+                'Aylık performans raporu'
+            ],
+            note: 'Önerilen: Abonelik. Tek seferlik pilot: €790 / ₺26.000'
+        },
+        {
+            name: 'İtibar Arttırıcı',
+            description: 'Çok kanallı, çok formatlı, ileri raporlama',
+            eur: 1190,
+            try: '39.000',
+            features: [
+                '5+ kanal (ekstra e-posta/Medium/Reddit)',
+                'Çok dilli üretim (isteğe bağlı)',
+                'Haftalık 1 kampanya + 3 mikro içerik',
+                'İleri SEO brif ve backlink entegrasyonu',
+                'Sosyal dinleme ve kriz takibi',
+                'Detaylı KPI raporu ve öneriler'
+            ],
+            note: 'Aylık taahhüt ile indirim. Tek seferlik kampanya kurulumu: €1.490 / ₺49.000'
+        }
+    ];
+
+    return React.createElement('div', { className: 'min-h-screen py-8 px-4' },
+        React.createElement('div', { className: 'max-w-6xl mx-auto' },
+            React.createElement('div', { className: 'text-center mb-12' },
+                React.createElement('h1', { className: 'text-4xl font-bold gradient-text mb-3' }, 'Pricing'),
+                React.createElement('p', { className: 'text-gray-300 text-lg' }, 'Aylık abonelik odaklı. Berlin (€) ve Türkiye (₺) fiyatları birlikte gösterilir.')
+            ),
+            React.createElement('div', { className: 'grid md:grid-cols-3 gap-6' },
+                packages.map(p => React.createElement(PricingCard, {
+                    key: p.name,
+                    name: p.name,
+                    popular: p.popular,
+                    description: p.description,
+                    priceEUR: p.eur,
+                    priceTRY: p.try,
+                    features: p.features,
+                    note: p.note
+                }))
+            ),
+            React.createElement('div', { className: 'text-center mt-10 text-sm text-gray-400' }, 'Fiyatlara KDV dahil değildir. Ödemeler Stripe/İBAN ile yapılabilir.'),
+            React.createElement('div', { className: 'text-center mt-6' },
+                React.createElement('a', {
+                    href: window.getCalendlyUrl(),
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                    className: 'inline-block bg-gradient-to-r from-accent-light to-accent text-white px-8 py-3 rounded-lg font-semibold hover:scale-105 transition-transform duration-200 shadow'
+                }, 'Book Demo')
             )
         )
     );

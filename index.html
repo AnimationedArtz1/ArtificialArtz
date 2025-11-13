@@ -32,11 +32,38 @@
         }
     </style>
 </head>
-<body class="bg-dark-bg text-light-text min-h-screen">
+<body class="bg-dark-bg text-light-text min-h-screen" data-calendly-url="https://calendly.com/YOUR_CALENDLY_USERNAME/intro-call" data-analytics-enabled="false" data-analytics-domain="artificialartz.xyz">
     <div id="root"></div>
-    <script type="text/babel" src="js/components.js"></script>
-    <script type="text/babel" src="js/tools.js"></script>
-    <script type="text/babel" src="js/pages.js"></script>
-    <script type="text/babel" src="js/app.js"></script>
+
+    <!-- Lightweight config + analytics toggle -->
+    <script>
+        (function () {
+            // Initial route from path or hash
+            var path = (location.pathname || '').replace(/^\/+/, '');
+            if (!path && location.hash) path = location.hash.replace(/^#\/?/, '');
+            var allowed = ['home','tools','services','pricing','about','contact'];
+            if (allowed.indexOf(path) === -1) path = 'home';
+            window.__INITIAL_ROUTE__ = path;
+
+            // Config and analytics
+            window.APP_CONFIG = window.APP_CONFIG || {};
+            window.APP_CONFIG.calendlyUrl = document.body.dataset.calendlyUrl || window.APP_CONFIG.calendlyUrl || 'https://calendly.com/YOUR_CALENDLY_USERNAME/intro-call';
+            var analyticsEnabled = document.body.dataset.analyticsEnabled === 'true';
+            var analyticsDomain = document.body.dataset.analyticsDomain || window.location.hostname;
+            if (analyticsEnabled) {
+                var s = document.createElement('script');
+                s.defer = true;
+                s.setAttribute('data-domain', analyticsDomain);
+                s.src = 'https://plausible.io/js/plausible.js';
+                document.head.appendChild(s);
+            }
+        })();
+    </script>
+
+    <!-- App scripts -->
+    <script type="text/babel" src="components.js"></script>
+    <script type="text/babel" src="tools.js"></script>
+    <script type="text/babel" src="pages.js"></script>
+    <script type="text/babel" src="app.js"></script>
 </body>
 </html>
