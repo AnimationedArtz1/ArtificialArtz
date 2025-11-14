@@ -211,7 +211,7 @@ const ToolsPage = () => {
                 React.createElement('p', { className: 'text-yellow-300 text-sm' },
                     '⚠️ Beta Test Note: For now, paste your input (typing issue being fixed). ',
                     React.createElement('a', {
-                        href: 'https://www.fiverr.com/s/bdb44pp',
+                        href: 'https://www.fiverr.com/s/0bx48oy',
                         target: '_blank',
                         className: 'text-yellow-200 hover:text-white underline'
                     }, 'Hire me on Fiverr'),
@@ -338,7 +338,7 @@ const ToolsPage = () => {
                 React.createElement('p', { className: 'text-yellow-300 text-sm' },
                     '⚠️ Beta Test Note: For now, paste your input (typing issue being fixed). ',
                     React.createElement('a', {
-                        href: 'https://www.fiverr.com/s/bdb44pp',
+                        href: 'https://www.fiverr.com/s/0bx48oy',
                         target: '_blank',
                         className: 'text-yellow-200 hover:text-white underline'
                     }, 'Hire me on Fiverr'),
@@ -461,7 +461,7 @@ const ToolsPage = () => {
                 React.createElement('p', { className: 'text-yellow-300 text-sm' },
                     '⚠️ Beta Test Note: For now, paste your input (typing issue being fixed). ',
                     React.createElement('a', {
-                        href: 'https://www.fiverr.com/s/bdb44pp',
+                        href: 'https://www.fiverr.com/s/0bx48oy',
                         target: '_blank',
                         className: 'text-yellow-200 hover:text-white underline'
                     }, 'Hire me on Fiverr'),
@@ -595,7 +595,7 @@ const ToolsPage = () => {
                 React.createElement('p', { className: 'text-yellow-300 text-sm' },
                     '⚠️ Beta Test Note: For now, paste your input (typing issue being fixed). ',
                     React.createElement('a', {
-                        href: 'https://www.fiverr.com/s/bdb44pp',
+                        href: 'https://www.fiverr.com/s/0bx48oy',
                         target: '_blank',
                         className: 'text-yellow-200 hover:text-white underline'
                     }, 'Hire me on Fiverr'),
@@ -707,7 +707,7 @@ const ToolsPage = () => {
                 React.createElement('p', { className: 'text-yellow-300 text-sm' },
                     '⚠️ Beta Test Note: For now, paste your input (typing issue being fixed). ',
                     React.createElement('a', {
-                        href: 'https://www.fiverr.com/s/bdb44pp',
+                        href: 'https://www.fiverr.com/s/0bx48oy',
                         target: '_blank',
                         className: 'text-yellow-200 hover:text-white underline'
                     }, 'Hire me on Fiverr'),
@@ -822,7 +822,7 @@ const ToolsPage = () => {
                 React.createElement('p', { className: 'text-yellow-300 text-sm' },
                     '⚠️ Beta Test Note: For now, paste your input (typing issue being fixed). ',
                     React.createElement('a', {
-                        href: 'https://www.fiverr.com/s/bdb44pp',
+                        href: 'https://www.fiverr.com/s/0bx48oy',
                         target: '_blank',
                         className: 'text-yellow-200 hover:text-white underline'
                     }, 'Hire me on Fiverr'),
@@ -1047,7 +1047,7 @@ const ToolsPage = () => {
                 React.createElement('p', { className: 'text-yellow-300 text-sm' },
                     '⚠️ Beta Test Note: For now, paste your input (typing issue being fixed). ',
                     React.createElement('a', {
-                        href: 'https://www.fiverr.com/s/bdb44pp',
+                        href: 'https://www.fiverr.com/s/0bx48oy',
                         target: '_blank',
                         className: 'text-yellow-200 hover:text-white underline'
                     }, 'Hire me on Fiverr'),
@@ -1159,7 +1159,7 @@ const ToolsPage = () => {
                 React.createElement('p', { className: 'text-yellow-300 text-sm' },
                     '⚠️ Beta Test Note: For now, paste your input (typing issue being fixed). ',
                     React.createElement('a', {
-                        href: 'https://www.fiverr.com/s/bdb44pp',
+                        href: 'https://www.fiverr.com/s/0bx48oy',
                         target: '_blank',
                         className: 'text-yellow-200 hover:text-white underline'
                     }, 'Hire me on Fiverr'),
@@ -1276,7 +1276,7 @@ const ToolsPage = () => {
             allText = results.map((result, index) => `${index + 1}. ${result.name}\n   Colors: ${result.colors.join(', ')}\n   Description: ${result.description}\n   Accessibility: ${result.accessibility}% | Harmony: ${result.harmony}%`).join('\n\n');
         }
         
-        const fullText = title + allText + '\n\n✨ Generated by ArtificialArtz Tools - Get custom solutions at Fiverr.com/s/bdb44pp';
+        const fullText = title + allText + '\n\n✨ Generated by ArtificialArtz Tools - Get custom solutions at fiverr.com/s/0bx48oy';
         copyToClipboard(fullText);
     };
 
@@ -1738,7 +1738,7 @@ const ToolsPage = () => {
                 React.createElement('p', { className: 'text-lg mb-6' }, 'These are just demo tools. Get custom automation workflows built for your business.'),
                 React.createElement('div', { className: 'flex flex-col sm:flex-row gap-4 justify-center' },
                     React.createElement('a', {
-                        href: 'https://www.fiverr.com/s/bdb44pp',
+                        href: 'https://www.fiverr.com/s/0bx48oy',
                         target: '_blank',
                         className: 'bg-white text-accent px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors'
                     }, 'Hire on Fiverr'),
