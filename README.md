@@ -1,99 +1,59 @@
-# ArtificialArtz - AI Automation Agency Website
+# ArtificialArtz – React + Vite Bootstrap
 
-A modern, responsive portfolio and lead generation website for ArtificialArtz AI automation agency.
+A modern React application bootstrapped with Vite, TypeScript, Tailwind CSS, and React Router. This
+setup replaces the legacy CDN/Babel prototype with an extensible project structure suitable for
+production workflows.
 
-## 🚀 Features
+## ✨ Highlights
 
-- Dark Theme: Professional dark theme with accent colors (#7c5cff)
-- Responsive Design: Mobile-first design that works on all devices
-- Interactive Tools: Demo AI tools (client-side)
-- Blog Integration: Fetches latest posts from WordPress blog
-- Lead Generation: Direct links to Fiverr and Bionluk profiles
-- Contact & CTA: Global Book Demo button (Calendly)
+- **Vite + React + TypeScript** for fast development and type-safe components
+- **Tailwind CSS** with PostCSS + Autoprefixer for utility-first styling
+- **React Router v6** scaffolding for Home, Tools, Services, About, Contact, and 404 routes
+- **ESLint + Prettier** preconfigured to enforce consistent formatting and best practices
+- Modular directory layout (`components`, `pages`, `hooks`, `lib`, `data`, `styles`, `assets`)
+
+## 🚀 Getting Started
+
+```bash
+npm install           # Install dependencies
+npm run dev           # Start the Vite dev server (http://localhost:5173)
+npm run build         # Type-check and build for production
+npm run preview       # Preview the production build locally
+```
 
 ## 📁 Project Structure
 
 ```
-artificialartz-website/
-├── index.html       # Main HTML (CDN React/Tailwind, config + analytics toggle)
-├── styles.css       # Custom CSS styles and animations
-├── components.js    # Shared components (Navbar, Footer, Section, PricingCard)
-├── app.js           # Main app, simple router, and Home page
-├── tools.js         # Tools page
-└── pages.js         # Services, Pricing, About, Contact pages
+├── public/             # Static assets served at the root (favicon, etc.)
+├── src/
+│   ├── assets/         # Asset imports bundled by Vite
+│   ├── components/     # Reusable presentational + layout components
+│   ├── data/           # Static data, configuration, copy blocks
+│   ├── hooks/          # Shared React hooks
+│   ├── lib/            # Utilities and framework-agnostic helpers
+│   ├── pages/          # Route-level views (Home, Tools, Services, etc.)
+│   ├── styles/         # Tailwind entrypoint and custom styles
+│   └── main.tsx        # React bootstrap + router mounting
+├── index.html          # Vite entry HTML document
+├── tailwind.config.cjs # Tailwind configuration
+└── postcss.config.cjs  # PostCSS pipeline (Tailwind + Autoprefixer)
 ```
 
-## 🛠 Technologies Used
+## 🧩 Routing
 
-- Frontend: React (UMD via CDN), Tailwind CSS (CDN)
-- APIs: WordPress REST API (blog feed)
-- Integrations: Calendly (Book Demo), optional Plausible analytics
+`src/App.tsx` wires up the base routes via `react-router-dom`. Each page currently renders placeholder
+content so you can layer in real UI without reworking navigation or layout primitives.
 
-## 🎨 Design System
+## 🎨 Styling
 
-### Colors
-- Background: `#0b0b0c`
-- Text: `#f6f8fc`
-- Accent: `#7c5cff`
-- Accent Light: `#9b8cff`
+Tailwind is configured globally in `src/styles/index.css`. Add component-level styles via utility
+classes or extract shared patterns into Tailwind component layers.
 
-### Components
-- Gradient logo "AA" in circle
-- Rotating taglines with slide animation
-- Hover effects on cards and buttons
-- Mobile-responsive navigation
+## 🧪 Linting & Formatting
 
-## 📱 Pages
+ESLint and Prettier run with opinionated defaults tuned for React + TypeScript. Integrate them into
+your editor for instant feedback, or run the linters via your preferred tooling or CI workflow.
 
-1. Home – Hero section, featured tools, blog posts, CTA buttons
-2. Tools – Hook Generator, YouTube Ideas, Blog Outline (demo tools)
-3. Services – Otonom İçerik Motoru (service description and CTAs)
-4. Pricing – Three packages with € and ₺ pricing
-5. About – Bio, tech stack, and specializations
-6. Contact – Platform links (Fiverr/Bionluk)
+---
 
-## 🔧 Configuration
-
-### Edit package prices and features
-- File: `pages.js`
-- Component: `PricingPage`
-- Update `eur` (Euro) and `try` (Lira) fields for each tier and adjust `features`/`note` strings.
-
-### Change Calendly link (Book Demo)
-- File: `index.html`
-- Set the `data-calendly-url` attribute on the `<body>` tag:
-  `<body data-calendly-url="https://calendly.com/YOUR_CALENDLY_USERNAME/intro-call">`
-- Alternatively, set `window.APP_CONFIG.calendlyUrl` in a small script before app scripts.
-
-### Enable lightweight analytics (Plausible/Umami placeholder)
-- File: `index.html`
-- Toggle with `<body data-analytics-enabled="true" data-analytics-domain="yourdomain.com">`
-- When enabled, a Plausible script tag is injected dynamically.
-
-### Routes
-- The SPA can load `/services` and `/pricing` directly (initial route detection in `index.html`).
-- Navigation is fully client-side; no build tooling, no framework router.
-
-## 📊 Performance Optimizations
-
-- Lazy loading for blog posts
-- Minimal external dependencies
-- Efficient API calls with error handling
-- Responsive images and layouts
-- Fast loading times
-
-## 🔐 Security Notes
-
-- All external links open in new tabs
-- Input sanitization where necessary
-- HTTPS recommended for production
-
-## 📞 Support
-
-For questions about this website:
-- Fiverr: https://www.fiverr.com/artificialartz
-- Bionluk: https://www.bionluk.com/artificialartz
-
-## 📄 License
-
-© 2025 ArtificialArtz - All rights reserved
+Happy building! ✨

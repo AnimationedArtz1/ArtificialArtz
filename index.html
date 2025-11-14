@@ -1,69 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ArtificialArtz - AI Automation Agency</title>
-    <link rel="icon" type="image/png" href="./logo.png">
-    <link rel="apple-touch-icon" href="./logo.png">
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'dark-bg': '#0b0b0c',
-                        'light-text': '#f6f8fc',
-                        'accent': '#7c5cff',
-                        'accent-light': '#9b8cff'
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #0b0b0c;
-            color: #f6f8fc;
-        }
-    </style>
-</head>
-<body class="bg-dark-bg text-light-text min-h-screen" data-calendly-url="https://calendly.com/YOUR_CALENDLY_USERNAME/intro-call" data-analytics-enabled="false" data-analytics-domain="artificialartz.xyz">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArtificialArtz</title>
+  </head>
+  <body>
     <div id="root"></div>
-
-    <!-- Lightweight config + analytics toggle -->
-    <script>
-        (function () {
-            // Initial route from path or hash
-            var path = (location.pathname || '').replace(/^\/+/, '');
-            if (!path && location.hash) path = location.hash.replace(/^#\/?/, '');
-            var allowed = ['home','tools','services','pricing','about','contact'];
-            if (allowed.indexOf(path) === -1) path = 'home';
-            window.__INITIAL_ROUTE__ = path;
-
-            // Config and analytics
-            window.APP_CONFIG = window.APP_CONFIG || {};
-            window.APP_CONFIG.calendlyUrl = document.body.dataset.calendlyUrl || window.APP_CONFIG.calendlyUrl || 'https://calendly.com/YOUR_CALENDLY_USERNAME/intro-call';
-            var analyticsEnabled = document.body.dataset.analyticsEnabled === 'true';
-            var analyticsDomain = document.body.dataset.analyticsDomain || window.location.hostname;
-            if (analyticsEnabled) {
-                var s = document.createElement('script');
-                s.defer = true;
-                s.setAttribute('data-domain', analyticsDomain);
-                s.src = 'https://plausible.io/js/plausible.js';
-                document.head.appendChild(s);
-            }
-        })();
-    </script>
-
-    <!-- App scripts -->
-    <script type="text/babel" src="components.js"></script>
-    <script type="text/babel" src="tools.js"></script>
-    <script type="text/babel" src="pages.js"></script>
-    <script type="text/babel" src="app.js"></script>
-</body>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
