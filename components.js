@@ -28,7 +28,7 @@ const Section = ({ title, subtitle, children, className = '' }) => (
 );
 
 // Reusable Pricing Card
-const PricingCard = ({ name, popular, description, priceEUR, priceTRY, features = [], ctaLabel = 'Book Demo', onCta, note }) => (
+const PricingCard = ({ name, popular, description, priceEUR, priceTRY, features = [], ctaLabel = 'Get Started', onCta, note }) => (
     React.createElement('div', { className: 'bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl border border-gray-700 hover:border-accent/50 transition-all duration-300 card-hover overflow-hidden' },
         React.createElement('div', { className: 'p-6 border-b border-gray-700 relative' },
             popular && React.createElement('span', { className: 'absolute top-4 right-4 text-xs bg-accent text-white px-2 py-1 rounded-full' }, 'Popular'),
@@ -51,7 +51,7 @@ const PricingCard = ({ name, popular, description, priceEUR, priceTRY, features 
             ),
             note && React.createElement('div', { className: 'text-xs text-gray-400 bg-gray-800/60 p-3 rounded mb-4' }, note),
             React.createElement('a', {
-                href: window.getCalendlyUrl(),
+                href: 'https://www.fiverr.com/s/0bx48oy',
                 target: '_blank',
                 rel: 'noopener noreferrer',
                 onClick: onCta,
@@ -120,13 +120,13 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
                         React.createElement('span', {}, 'Blog'),
                         React.createElement('span', { className: 'text-xs' }, '↗')
                     ),
-                    // Book demo CTA
+                    // Hire CTA
                     React.createElement('a', {
-                        href: window.getCalendlyUrl(),
+                        href: 'https://www.fiverr.com/s/0bx48oy',
                         target: '_blank',
                         rel: 'noopener noreferrer',
                         className: 'ml-2 bg-gradient-to-r from-green-600 to-emerald-600 text-white px-4 py-2 rounded-lg font-semibold hover:scale-105 transition-transform duration-200 shadow'
-                    }, 'Book Demo')
+                    }, 'Hire Me')
                 ),
                 
                 // Mobile menu button
@@ -171,12 +171,12 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
                         React.createElement('span', { className: 'text-xs' }, '↗')
                     ),
                     React.createElement('a', {
-                        href: window.getCalendlyUrl(),
+                        href: 'https://www.fiverr.com/s/0bx48oy',
                         target: '_blank',
                         rel: 'noopener noreferrer',
                         className: 'mx-4 mt-2 bg-gradient-to-r from-green-600 to-emerald-600 text-white px-4 py-3 rounded-lg font-semibold text-center hover:scale-105 transition-transform duration-200 shadow',
                         onClick: () => setMobileMenuOpen(false)
-                    }, 'Book Demo')
+                    }, 'Hire Me')
                 )
             )
         )
@@ -192,18 +192,18 @@ const Footer = () => {
             // Contact CTA
             React.createElement('div', { className: 'py-10 border-b border-gray-800 text-center' },
                 React.createElement('h3', { className: 'text-2xl font-bold mb-3' }, 'Have a project in mind?'),
-                React.createElement('p', { className: 'text-gray-300 mb-6' }, 'Let\'s design your AI destekli içerik motoru together.'),
+                React.createElement('p', { className: 'text-gray-300 mb-6' }, 'Message us via Fiverr or Bionluk to discuss your AI automation needs.'),
                 React.createElement('div', { className: 'flex flex-col sm:flex-row gap-4 justify-center' },
                     React.createElement('a', {
-                        href: window.getCalendlyUrl(),
+                        href: 'https://www.fiverr.com/s/0bx48oy',
                         target: '_blank',
                         rel: 'noopener noreferrer',
                         className: 'bg-gradient-to-r from-accent-light to-accent text-white px-6 py-3 rounded-lg font-semibold hover:scale-105 transition-transform duration-200 shadow'
-                    }, 'Book Demo'),
+                    }, 'Message on Fiverr'),
                     React.createElement('button', {
                         onClick: () => { if (window.appNavigate) window.appNavigate('contact'); else window.location.hash = '#/contact'; },
                         className: 'border-2 border-accent text-accent px-6 py-3 rounded-lg font-semibold hover:bg-accent hover:text-white transition-colors duration-200'
-                    }, 'Contact')
+                    }, 'Get In Touch')
                 )
             ),
             // Bottom bar

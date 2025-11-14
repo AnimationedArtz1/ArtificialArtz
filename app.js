@@ -14,9 +14,17 @@ const App = () => {
         "Build once, run forever.",
         "Humans decide, bots deliver.",
         "Content at scale – without chaos."
+
+
     ];
 
+    // Scroll to top on page change
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [currentPage]);
+
     // Rotating taglines effect
+
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentTagline(prev => (prev + 1) % taglines.length);
@@ -114,7 +122,7 @@ const App = () => {
                     
                     React.createElement('div', { className: 'flex flex-col sm:flex-row gap-4 justify-center' },
                         React.createElement('a', {
-                            href: 'https://www.fiverr.com/s/bdb44pp',
+                            href: 'https://www.fiverr.com/s/0bx48oy',
                             target: '_blank',
                             className: 'bg-gradient-to-r from-accent-light to-accent text-white px-8 py-3 rounded-lg font-semibold hover:scale-105 transition-transform duration-200'
                         }, 'Hire Me on Fiverr'),
@@ -356,7 +364,7 @@ const App = () => {
                                     ),
                                     React.createElement('div', { className: 'flex flex-col sm:flex-row gap-4 justify-center' },
                                         React.createElement('a', {
-                                            href: 'https://www.fiverr.com/s/bdb44pp',
+                                            href: 'https://www.fiverr.com/s/0bx48oy',
                                             target: '_blank',
                                             className: 'bg-gradient-to-r from-accent-light to-accent text-white px-6 py-3 rounded-lg font-semibold hover:scale-105 transition-transform duration-200'
                                         }, 'Get Custom Solutions Now'),
@@ -539,7 +547,7 @@ const App = () => {
                                 ),
                                 React.createElement('div', { className: 'flex flex-col sm:flex-row gap-4 justify-center' },
                                     React.createElement('a', {
-                                        href: 'https://www.fiverr.com/s/bdb44pp',
+                                        href: 'https://www.fiverr.com/s/0bx48oy',
                                         target: '_blank',
                                         className: 'bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg'
                                     }, '🌍 Get International Solution (Fiverr)'),
@@ -563,7 +571,7 @@ const App = () => {
                     
                     React.createElement('div', { className: 'flex flex-col sm:flex-row gap-4 justify-center' },
                         React.createElement('a', {
-                            href: 'https://www.fiverr.com/s/bdb44pp',
+                            href: 'https://www.fiverr.com/s/0bx48oy',
                             target: '_blank',
                             className: 'bg-white text-accent px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg'
                         }, '🔥 Hire on Fiverr'),

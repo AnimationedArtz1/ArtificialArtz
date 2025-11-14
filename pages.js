@@ -10,11 +10,10 @@ const ServicesPage = () => {
                 React.createElement('p', { className: 'text-xl text-gray-300 mb-8 max-w-3xl mx-auto' }, 'AI destekli içerik motoru: Blog, sosyal medya ve e-posta için tutarlı, çok kanallı içerik üretimi ve dağıtımı. Ölçeklenebilir, ölçümlenebilir, sürekli.'),
                 React.createElement('div', { className: 'flex flex-col sm:flex-row gap-4 justify-center' },
                     React.createElement('a', {
-                        href: window.getCalendlyUrl(),
+                        href: 'https://www.fiverr.com/s/0bx48oy',
                         target: '_blank',
-                        rel: 'noopener noreferrer',
                         className: 'bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:scale-105 transition-transform duration-200 shadow'
-                    }, 'Book Demo'),
+                    }, 'Get Started Now'),
                     React.createElement('button', {
                         onClick: () => { if (window.appNavigate) window.appNavigate('pricing'); else window.location.hash = '#/pricing'; },
                         className: 'border-2 border-accent text-accent px-8 py-3 rounded-lg font-semibold hover:bg-accent hover:text-white transition-colors duration-200'
@@ -73,11 +72,10 @@ const ServicesPage = () => {
             React.createElement('div', { className: 'text-center' },
                 React.createElement('div', { className: 'flex flex-col sm:flex-row gap-4 justify-center' },
                     React.createElement('a', {
-                        href: window.getCalendlyUrl(),
+                        href: 'https://www.fiverr.com/s/0bx48oy',
                         target: '_blank',
-                        rel: 'noopener noreferrer',
                         className: 'bg-gradient-to-r from-accent-light to-accent text-white px-8 py-3 rounded-lg font-semibold hover:scale-105 transition-transform duration-200 shadow'
-                    }, 'Book Demo'),
+                    }, 'Hemen Başla'),
                     React.createElement('button', {
                         onClick: () => { if (window.appNavigate) window.appNavigate('pricing'); else window.location.hash = '#/pricing'; },
                         className: 'border-2 border-accent text-accent px-8 py-3 rounded-lg font-semibold hover:bg-accent hover:text-white transition-colors duration-200'
@@ -110,37 +108,37 @@ const AboutPage = () => {
                 ),
                 React.createElement('h1', { className: 'text-4xl font-bold mb-4 gradient-text' }, 'About ArtificialArtz'),
                 React.createElement('p', { className: 'text-xl text-gray-300 max-w-2xl mx-auto' },
-                    'Solo AI automation specialist turning complex workflows into simple, profitable systems'
+                    'Our team of AI automation experts turning complex workflows into simple, profitable systems'
                 )
             ),
 
             // Story Section
             React.createElement('div', { className: 'grid lg:grid-cols-2 gap-12 mb-16' },
                 React.createElement('div', { className: 'bg-gray-900 p-8 rounded-xl card-hover' },
-                    React.createElement('h2', { className: 'text-2xl font-bold mb-6 text-accent' }, 'My Story'),
+                    React.createElement('h2', { className: 'text-2xl font-bold mb-6 text-accent' }, 'Our Story'),
                     React.createElement('p', { className: 'text-lg text-gray-300 leading-relaxed mb-6' },
-                        "I'm not your typical developer. While others build complex systems that break, I create simple automations that just work. Based in Berlin, serving clients globally through Fiverr and Bionluk."
+                        "We're not your typical automation team. While others build complex systems that break, we create simple automations that just work. Based globally and serving clients worldwide through Fiverr and Bionluk, we're committed to making AI accessible to everyone."
                     ),
                     React.createElement('p', { className: 'text-lg text-gray-300 leading-relaxed mb-6' },
-                        "Started with a simple problem: businesses drowning in repetitive tasks while AI sits unused. My solution: practical automation that generates real ROI, not fancy demos."
+                        "We started with a simple problem: businesses drowning in repetitive tasks while AI sits unused. Our solution: practical automation that generates real ROI, not fancy demos. We believe in delivering results that matter."
                     ),
                     React.createElement('p', { className: 'text-lg text-gray-300 leading-relaxed' },
-                        "150+ projects later, my clients save thousands of hours and generate millions in content. My approach: Keep it simple, make it work, deliver results."
+                        "150+ projects later, our clients save thousands of hours and generate millions in content. Our approach: Keep it simple, make it work, deliver results. Join our growing community of successful automations."
                     )
                 ),
                 
                 React.createElement('div', { className: 'space-y-6' },
                     React.createElement('div', { className: 'bg-gray-800 p-6 rounded-lg card-hover' },
                         React.createElement('h3', { className: 'text-xl font-bold mb-3 text-green-400' }, '🎯 Mission'),
-                        React.createElement('p', { className: 'text-gray-300' }, 'Make AI automation accessible to every business, regardless of technical expertise or budget.')
+                        React.createElement('p', { className: 'text-gray-300' }, 'We make AI automation accessible and affordable for every business, regardless of technical expertise or budget. Your success is our mission.')
                     ),
                     React.createElement('div', { className: 'bg-gray-800 p-6 rounded-lg card-hover' },
                         React.createElement('h3', { className: 'text-xl font-bold mb-3 text-blue-400' }, '🚀 Vision'),
-                        React.createElement('p', { className: 'text-gray-300' }, 'A world where humans focus on strategy and creativity while AI handles the repetitive work.')
+                        React.createElement('p', { className: 'text-gray-300' }, 'A world where teams focus on strategy and creativity while AI handles the repetitive work. We\'re building the future of work together.')
                     ),
                     React.createElement('div', { className: 'bg-gray-800 p-6 rounded-lg card-hover' },
                         React.createElement('h3', { className: 'text-xl font-bold mb-3 text-purple-400' }, '⭐ Values'),
-                        React.createElement('p', { className: 'text-gray-300' }, 'Practical solutions over hype. Client success over complexity. Fast delivery without shortcuts.')
+                        React.createElement('p', { className: 'text-gray-300' }, 'Practical solutions over hype. Your success over complexity. Reliability without shortcuts. We stand by our work.')
                     )
                 )
             ),
@@ -149,7 +147,7 @@ const AboutPage = () => {
             React.createElement('div', { className: 'grid md:grid-cols-2 gap-8 mb-16' },
                 React.createElement('div', { className: 'bg-gray-900 p-8 rounded-xl card-hover' },
                     React.createElement('h3', { className: 'text-2xl font-bold mb-6 text-accent flex items-center' },
-                        '🎯 What I Create',
+                        '🎯 What We Create',
                         React.createElement('span', { className: 'ml-3 text-sm bg-accent/20 px-2 py-1 rounded' }, 'Specialized Solutions')
                     ),
                     React.createElement('div', { className: 'space-y-6' },
@@ -177,7 +175,7 @@ const AboutPage = () => {
                 
                 React.createElement('div', { className: 'bg-gray-900 p-8 rounded-xl card-hover' },
                     React.createElement('h3', { className: 'text-2xl font-bold mb-6 text-accent flex items-center' },
-                        '🛠️ Implementation Approach',
+                        '🛠️ Our Process',
                         React.createElement('span', { className: 'ml-3 text-sm bg-green-500/20 text-green-400 px-2 py-1 rounded' }, 'Proven Process')
                     ),
                     React.createElement('div', { className: 'space-y-6' },
@@ -208,10 +206,10 @@ const AboutPage = () => {
             // CTA Section
             React.createElement('div', { className: 'text-center bg-gradient-to-r from-accent-light to-accent p-12 rounded-xl' },
                 React.createElement('h2', { className: 'text-3xl font-bold mb-4' }, 'Ready to Work Together?'),
-                React.createElement('p', { className: 'text-xl mb-8' }, 'Let\'s build something amazing that actually works for your business'),
+                React.createElement('p', { className: 'text-xl mb-8' }, 'Let\'s build something amazing that actually works for your business. Message us via Fiverr or Bionluk to get started.'),
                 React.createElement('div', { className: 'flex flex-col sm:flex-row gap-4 justify-center' },
                     React.createElement('a', {
-                        href: 'https://www.fiverr.com/s/e6AREEj',
+                        href: 'https://www.fiverr.com/s/0bx48oy',
                         target: '_blank',
                         className: 'bg-white text-accent px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 btn-primary'
                     }, '🚀 Start Project on Fiverr'),
@@ -260,9 +258,9 @@ const ContactPage = () => {
         React.createElement('div', { className: 'max-w-4xl mx-auto' },
             // Header Section
             React.createElement('div', { className: 'text-center mb-16' },
-                React.createElement('h1', { className: 'text-4xl font-bold mb-4 gradient-text' }, 'Contact Us'),
+                React.createElement('h1', { className: 'text-4xl font-bold mb-4 gradient-text' }, 'Get In Touch'),
                 React.createElement('p', { className: 'text-xl text-gray-300 mb-8 max-w-2xl mx-auto' },
-                    'Ready to transform your business with AI automation? Let\'s start your project today!'
+                    'Message us via Fiverr or Bionluk to discuss your AI automation project. We\'re here to help you succeed!'
                 ),
                 
                 // Platform Toggle Buttons
@@ -345,7 +343,7 @@ const ContactPage = () => {
                     // CTA Buttons
                     React.createElement('div', { className: 'flex flex-col sm:flex-row gap-4 justify-center' },
                         React.createElement('a', {
-                            href: 'https://www.fiverr.com/s/e6AREEj',
+                            href: 'https://www.fiverr.com/s/0bx48oy',
                             target: '_blank',
                             rel: 'noopener noreferrer',
                             className: `group px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-center ${
@@ -384,7 +382,7 @@ const ContactPage = () => {
             // Enhanced CTA Cards
             React.createElement('div', { className: 'mt-12 grid md:grid-cols-2 gap-6' },
                 React.createElement('a', {
-                    href: 'https://www.fiverr.com/s/e6AREEj',
+                    href: 'https://www.fiverr.com/s/0bx48oy',
                     target: '_blank',
                     rel: 'noopener noreferrer',
                     className: 'group bg-gradient-to-br from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 text-white p-8 rounded-xl text-center transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl'
@@ -488,11 +486,11 @@ const PricingPage = () => {
             React.createElement('div', { className: 'text-center mt-10 text-sm text-gray-400' }, 'Fiyatlara KDV dahil değildir. Ödemeler Stripe/İBAN ile yapılabilir.'),
             React.createElement('div', { className: 'text-center mt-6' },
                 React.createElement('a', {
-                    href: window.getCalendlyUrl(),
+                    href: 'https://www.fiverr.com/s/0bx48oy',
                     target: '_blank',
                     rel: 'noopener noreferrer',
                     className: 'inline-block bg-gradient-to-r from-accent-light to-accent text-white px-8 py-3 rounded-lg font-semibold hover:scale-105 transition-transform duration-200 shadow'
-                }, 'Book Demo')
+                }, 'Get Started')
             )
         )
     );
