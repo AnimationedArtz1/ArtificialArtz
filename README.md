@@ -1,59 +1,111 @@
-# ArtificialArtz – React + Vite Bootstrap
+# ArtificialArtz Platform (Next.js)
 
-A modern React application bootstrapped with Vite, TypeScript, Tailwind CSS, and React Router. This
-setup replaces the legacy CDN/Babel prototype with an extensible project structure suitable for
-production workflows.
+ArtificialArtz is a creative automation studio that delivers AI-powered tooling, services, and storytelling for brands and creators. This project is a complete rebuild on Next.js 14+ with the App Router, Tailwind CSS, TypeScript, and a comprehensive design system.
 
-## ✨ Highlights
+## Features
 
-- **Vite + React + TypeScript** for fast development and type-safe components
-- **Tailwind CSS** with PostCSS + Autoprefixer for utility-first styling
-- **React Router v6** scaffolding for Home, Tools, Services, About, Contact, and 404 routes
-- **ESLint + Prettier** preconfigured to enforce consistent formatting and best practices
-- Modular directory layout (`components`, `pages`, `hooks`, `lib`, `data`, `styles`, `assets`)
+- **Next.js 14 App Router** with strict TypeScript configuration
+- **Tailwind CSS v3** design system with custom tokens, animations, and responsive breakpoints
+- **Reusable UI library**: buttons, cards, forms, modals, toasts, spinners, skeletons, and more
+- **AI Tools** with simulated asynchronous generators, copy-to-clipboard, history, and scratchpad
+- **Pages**: Home, Tools, Services, About, Contact, including WordPress blog feed integration
+- **Error Handling**: Error boundaries, Sentry integration hooks, robust logging utilities
+- **SEO Ready**: Metadata, OpenGraph, Twitter cards, sitemap generation
+- **Testing**: Jest + React Testing Library, Playwright E2E tests
+- **CI/CD**: GitHub Actions pipeline for linting, type-checking, testing, and build verification
 
-## 🚀 Getting Started
+## Getting Started
+
+### Prerequisites
+
+- Node.js 20+
+- npm 10+
+
+### Installation
 
 ```bash
-npm install           # Install dependencies
-npm run dev           # Start the Vite dev server (http://localhost:5173)
-npm run build         # Type-check and build for production
-npm run preview       # Preview the production build locally
+npm install --legacy-peer-deps
 ```
 
-## 📁 Project Structure
+### Development
 
-```
-├── public/             # Static assets served at the root (favicon, etc.)
-├── src/
-│   ├── assets/         # Asset imports bundled by Vite
-│   ├── components/     # Reusable presentational + layout components
-│   ├── data/           # Static data, configuration, copy blocks
-│   ├── hooks/          # Shared React hooks
-│   ├── lib/            # Utilities and framework-agnostic helpers
-│   ├── pages/          # Route-level views (Home, Tools, Services, etc.)
-│   ├── styles/         # Tailwind entrypoint and custom styles
-│   └── main.tsx        # React bootstrap + router mounting
-├── index.html          # Vite entry HTML document
-├── tailwind.config.cjs # Tailwind configuration
-└── postcss.config.cjs  # PostCSS pipeline (Tailwind + Autoprefixer)
+```bash
+npm run dev
 ```
 
-## 🧩 Routing
+Access the app at `http://localhost:3000`.
 
-`src/App.tsx` wires up the base routes via `react-router-dom`. Each page currently renders placeholder
-content so you can layer in real UI without reworking navigation or layout primitives.
+### Production Build
 
-## 🎨 Styling
+```bash
+npm run build
+npm run start
+```
 
-Tailwind is configured globally in `src/styles/index.css`. Add component-level styles via utility
-classes or extract shared patterns into Tailwind component layers.
+### Testing
 
-## 🧪 Linting & Formatting
+- **Unit/Integration**: `npm run test`
+- **E2E (Playwright)**: `npm run test:e2e`
+- **Type Check**: `npm run type-check`
+- **Lint**: `npm run lint`
 
-ESLint and Prettier run with opinionated defaults tuned for React + TypeScript. Integrate them into
-your editor for instant feedback, or run the linters via your preferred tooling or CI workflow.
+### Environment Variables
 
----
+Copy `.env.example` to `.env.local` and configure as needed.
 
-Happy building! ✨
+```env
+NEXT_PUBLIC_SITE_URL=https://artificialartz.com
+NEXT_PUBLIC_WORDPRESS_API_URL=https://public-api.wordpress.com/wp/v2/sites/artificialartz.wordpress.com
+NEXT_PUBLIC_SENTRY_DSN=
+NEXT_PUBLIC_GA_ID=
+```
+
+### Scripts
+
+| Script               | Description                                |
+| -------------------- | ------------------------------------------ |
+| `npm run dev`        | Start the development server               |
+| `npm run build`      | Build the production bundle                |
+| `npm run start`      | Run the production server                  |
+| `npm run lint`       | Run ESLint                                 |
+| `npm run type-check` | Run TypeScript checks                      |
+| `npm run test`       | Run unit/integration tests with Jest       |
+| `npm run test:e2e`   | Run Playwright end-to-end tests            |
+| `npm run format`     | Format files with Prettier                 |
+| `npm run sitemap`    | Generate sitemap and robots.txt            |
+
+## Project Structure
+
+```
+app/
+  layout.tsx         # Root layout with global providers
+  page.tsx           # Home page
+  tools/             # Tool listing and individual tools
+  services/          # Services landing page
+  about/             # About page
+  contact/           # Contact form
+components/
+  layout/            # Header, footer, navigation
+  providers/         # Theme, toast, error boundary providers
+  ui/                # Design system components
+  home/              # Home page sections
+  tools/             # Tool UI elements
+hooks/
+lib/
+  constants/         # Taglines, tools, navigation, etc.
+  utils/             # Generators, helpers
+  storage/           # LocalStorage helpers
+services/
+  wordpress-service.ts # WordPress blog integration
+styles/
+  globals.css
+  design-tokens.css
+```
+
+## Deployment
+
+The project is configured for Vercel deployment with `next.config.js` and `vercel.json`. A GitHub Actions workflow automates linting, testing, and building on `staging` and `main` branches.
+
+## License
+
+This project is proprietary to ArtificialArtz.
