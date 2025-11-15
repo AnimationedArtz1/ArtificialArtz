@@ -1,0 +1,20 @@
+:root {
+  --background: 18 18 20;
+  --foreground: 236 233 252;
+  --muted: 120 119 137;
+  --border: 48 48 58;
+  --primary: 63 130 245;
+  --primary-foreground: 240 248 255;
+  --accent: 157 89 255;
+  --accent-foreground: 245 239 255;
+  --success: 59 201 110;
+  --warning: 255 178 55;
+  --danger: 240 82 82;
+  --radius: 14px;
+  color-scheme: dark;
+}
+
+body {
+  background: rgb(var(--background));
+  color: rgb(var(--foreground));
+}
