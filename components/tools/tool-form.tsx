@@ -12,7 +12,7 @@ import type { ToolDefinition } from '@/types/tool';
 const buildSchema = (fields: ToolDefinition['fields']) => {
   const shape: Record<string, z.ZodTypeAny> = {};
   fields.forEach(field => {
-    let validator: z.ZodTypeAny = z.string();
+    let validator: z.ZodString = z.string();
     if (field.required) {
       validator = validator.min(1, `${field.label} is required`);
     }
@@ -77,7 +77,6 @@ export const ToolForm = ({ tool, onSubmit, loading }: ToolFormProps) => {
                   {field.label}
                 </label>
                 <select
-                  id={field.id}
                   className="mt-1 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-white focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/30"
                   {...commonProps}
                 >
